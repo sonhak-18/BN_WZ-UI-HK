@@ -543,7 +543,7 @@ class TaskListener(TaskConfig):
 📤 <b>Up Mode</b>: {self.mode[1]}
 {error}"""
             if is_limit
-            else f"""<i><b>〶 Download Stopped!</b></i>
+            else f"""<i><b>🚫 Download Stopped!</b></i>
 
 ⚠️ <b>Due To</b>:  {escape(str(error))}
 📦 <b>Task Size</b>: {get_readable_file_size(self.size)}
