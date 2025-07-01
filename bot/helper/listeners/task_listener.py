@@ -489,9 +489,9 @@ class TaskListener(TaskConfig):
             else:
                 msg += f"\n📎 Path: <code>{rclone_path}</code>"
                 button = None
-            msg += f"\n👤 <b>Task By</b> → {self.tag}\n\n"
+            msg += f"\n👤 <b>Task By</b>: {self.tag}\n\n"
             group_msg = (
-                msg + "⚙️ <b><u>Action Performed :</u></b>\n"
+                msg + "⚙️ <b><u>Action Performed: </u></b>\n"
                 "📩 <i>Cloud link(s) have been sent to User PM</i>\n\n"
             )
 
