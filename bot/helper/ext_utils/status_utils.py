@@ -195,8 +195,8 @@ def get_progress_bar_string(pct):
     pct = float(str(pct).strip("%"))
     p = min(max(pct, 0), 100)
     cFull = int(p // 8)
-    p_str = "░" * cFull
-    p_str += "▓" * (12 - cFull)
+    p_str = "▓" * cFull
+    p_str += "░" * (12 - cFull)
     return f"[{p_str}]"
 
 
@@ -226,8 +226,8 @@ async def get_readable_message(sid, is_user, page_no=1, status="All", page_step=
             tstatus = await task.status()
         else:
             tstatus = task.status()
-        msg += f"📍 <b>{index + start_position}.</b> "
-        msg += f"🏷 <b><i>{escape(f'{task.name()}')}</i></b>"
+        msg += f"🏷 <b>{index + start_position}.</b> "
+        msg += f"<b><i>{escape(f'{task.name()}')}</i></b>"
         if task.listener.subname:
             msg += f"\n🔖 <b>Sub Name</b> → <i>{task.listener.subname}</i>"
         elapsed = time() - task.listener.message.date.timestamp()
