@@ -480,7 +480,7 @@ class TaskListener(TaskConfig):
                     elif Config.INDEX_URL:
                         INDEX_URL = Config.INDEX_URL
                     if INDEX_URL:
-                        url_path = url_quote(f'{name}')
+                        url_path = url_quote(f'{Name}')
                         share_url = f"{INDEX_URL}/{url_path}"
                         if mime_type == "Folder":
                            share_url += '/' 
