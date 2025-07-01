@@ -68,9 +68,9 @@ def _build_command_usage(help_dict, command_key):
             buttons.data_button(name, f"help {command_key} {name} {i}")
         if len(cmd_pages) > 1:
             if i > 0:
-                buttons.data_button("⫷", f"help pre {command_key} {i - 1}")
+                buttons.data_button("⏪", f"help pre {command_key} {i - 1}")
             if i < len(cmd_pages) - 1:
-                buttons.data_button("⫸", f"help nex {command_key} {i + 1}")
+                buttons.data_button("⏩", f"help nex {command_key} {i + 1}")
         buttons.data_button("Close", "help close", "footer")
         temp_store.append(buttons.build_menu(2))
         buttons.reset()
@@ -117,7 +117,7 @@ async def get_telegraph_list(telegraph_content):
     path = [
         (
             await telegraph.create_page(
-                title="Mirror-Leech-Bot Drive Search", content=content
+                title="Bawera Nitijana Drive Search", content=content
             )
         )["path"]
         for content in telegraph_content
