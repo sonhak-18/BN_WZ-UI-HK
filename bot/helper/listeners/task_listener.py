@@ -4,7 +4,7 @@ from time import time
 from mimetypes import guess_type
 from contextlib import suppress
 from os import path as ospath
-
+from urllib.parse import quote as url_quote
 from aiofiles.os import listdir, remove, path as aiopath
 from requests import utils as rutils
 
@@ -480,6 +480,7 @@ class TaskListener(TaskConfig):
                     elif Config.INDEX_URL:
                         INDEX_URL = Config.INDEX_URL
                     if INDEX_URL:
+                        url_path = url_quote(f'{name}')
                         share_url = f"{INDEX_URL}/{url_path}"
                         if mime_type == "Folder":
                            share_url += '/' 
