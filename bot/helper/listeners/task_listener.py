@@ -480,13 +480,10 @@ class TaskListener(TaskConfig):
                     elif Config.INDEX_URL:
                         INDEX_URL = Config.INDEX_URL
                     if INDEX_URL:
-                        share_url = f"{INDEX_URL}/{url_path}"
-                        if mime_type == "Folder":
-                           share_url += '/' 
-                           buttons.url_button("⚡ Index Link", share_url)
-                    else:
+                        share_url = f"{INDEX_URL}findpath?id={dir_id}"
+                        buttons.url_button("⚡ Index Link", share_url)
                         if mime_type.startswith(("image", "video", "audio")):
-                            share_urls = f"{INDEX_URL}/{url_path}?a=view"
+                            share_urls = f"{INDEX_URL}findpath?id={dir_id}&view=true"
                             buttons.url_button("🌐 View Link", share_urls)
                 button = buttons.build_menu(2)
             else:
