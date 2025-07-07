@@ -259,7 +259,7 @@ async def get_readable_message(sid, is_user, page_no=1, status="All", page_step=
                 task.listener.is_torrent or task.listener.is_qbit
             ):
                 try:
-                    msg += f"\n🌱 <b>Seeders</b>: {task.seeders_num()} | <b>Leechers</b> → {task.leechers_num()}"
+                    msg += f"\n🌱 <b>Seeders</b>: {task.seeders_num()} | <b>🍃 Leechers</b> → {task.leechers_num()}"
                 except Exception:
                     pass
             # TODO: Add Connected Peers
