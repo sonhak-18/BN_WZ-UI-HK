@@ -5,7 +5,6 @@ from asyncio import (
     sleep,
 )
 from asyncio.subprocess import PIPE
-from base64 import urlsafe_b64decode, urlsafe_b64encode
 from concurrent.futures import ThreadPoolExecutor
 from functools import partial, wraps
 
@@ -68,9 +67,9 @@ def _build_command_usage(help_dict, command_key):
             buttons.data_button(name, f"help {command_key} {name} {i}")
         if len(cmd_pages) > 1:
             if i > 0:
-                buttons.data_button("⏪", f"help pre {command_key} {i - 1}")
+                buttons.data_button("⫷", f"help pre {command_key} {i - 1}")
             if i < len(cmd_pages) - 1:
-                buttons.data_button("⏩", f"help nex {command_key} {i + 1}")
+                buttons.data_button("⫸", f"help nex {command_key} {i + 1}")
         buttons.data_button("Close", "help close", "footer")
         temp_store.append(buttons.build_menu(2))
         buttons.reset()
@@ -117,7 +116,7 @@ async def get_telegraph_list(telegraph_content):
     path = [
         (
             await telegraph.create_page(
-                title="Bawera Nitijana Drive Search", content=content
+                title="Mirror-Leech-Bot Drive Search", content=content
             )
         )["path"]
         for content in telegraph_content
@@ -251,16 +250,6 @@ async def get_content_type(url):
 def update_user_ldata(id_, key, value):
     user_data.setdefault(id_, {})
     user_data[id_][key] = value
-
-
-def encode_slink(string):
-    return (urlsafe_b64encode(string.encode("ascii")).decode("ascii")).strip("=")
-
-
-def decode_slink(b64_str):
-    return urlsafe_b64decode(
-        (b64_str.strip("=") + "=" * (-len(b64_str.strip("=")) % 4)).encode("ascii")
-    ).decode("ascii")
 
 
 async def cmd_exec(cmd, shell=False):

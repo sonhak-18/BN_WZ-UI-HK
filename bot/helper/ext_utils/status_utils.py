@@ -14,7 +14,6 @@ from ... import (
     task_dict_lock,
 )
 from ...core.config_manager import Config
-from ..telegram_helper.bot_commands import BotCommands
 from ..telegram_helper.button_build import ButtonMaker
 
 SIZE_UNITS = ["B", "KB", "MB", "GB", "TB", "PB"]
