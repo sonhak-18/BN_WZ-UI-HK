@@ -23,6 +23,8 @@ from .bot_utils import cmd_exec, sync_to_async
 from .files_utils import get_mime_type, is_archive, is_archive_split
 from .status_utils import time_to_seconds
 
+threads = max(1, cpu_no // 2)
+cores = ",".join(str(i) for i in range(threads))
 
 def get_md5_hash(up_path):
     md5_hash = md5()
