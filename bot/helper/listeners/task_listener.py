@@ -477,6 +477,23 @@ class TaskListener(TaskConfig):
             if mime_type == "Folder":
                 msg += f"\n🗂 <b>SubFolders</b> → {folders}"
                 msg += f"\n📂 <b>Files</b> → {files}"
+
+            multi_link_msg = ""
+            multi_links = []
+            if isinstance(link, dict) and not self.is_yt:
+                # MultiUphoster result
+                for service, result in link.items():
+                    if "error" in result:
+                        multi_link_msg += (
+                            f"{service.capitalize()}: Error - {result['error']}\n"
+                        )
+                    elif result.get("link"):
+                        multi_links.append(
+                            (f"{service.capitalize()} Link", result["link"])
+                        )
+                multi_link_msg = multi_link_msg.strip()
+                link = None  # Disable single link button logic
+                
             if (
                 link
                 or rclone_path
