@@ -436,7 +436,12 @@ class TaskConfig:
                         self.hybrid_leech = False
                     else:
                         uploader_id = TgClient.user.me.id
-                        if chat.type.name not in ["SUPERGROUP", "CHANNEL", "GROUP", "FORUM"]:
+                        if chat.type.name not in [
+                            "SUPERGROUP",
+                            "CHANNEL",
+                            "GROUP",
+                            "FORUM",
+                        ]:
                             self.user_transmission = False
                             self.hybrid_leech = False
                         else:
@@ -460,7 +465,12 @@ class TaskConfig:
                             raise ValueError("Chat not found!")
                     else:
                         uploader_id = self.client.me.id
-                        if chat.type.name in ["SUPERGROUP", "CHANNEL", "GROUP", "FORUM"]:
+                        if chat.type.name in [
+                            "SUPERGROUP",
+                            "CHANNEL",
+                            "GROUP",
+                            "FORUM",
+                        ]:
                             member = await chat.get_member(uploader_id)
                             if (
                                 not member.privileges.can_manage_chat
@@ -627,7 +637,7 @@ class TaskConfig:
             index = self.options.index("-b")
             del self.options[index]
             if bulk_start or bulk_end:
-                del self.options[index + 1]
+                del self.options[index]
             self.options = " ".join(self.options)
             b_msg.append(f"{self.bulk[0]} -i {len(self.bulk)} {self.options}")
             msg = " ".join(b_msg)
